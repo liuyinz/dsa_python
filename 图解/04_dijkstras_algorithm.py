@@ -30,7 +30,7 @@ processed = []
 
 
 def find_lowest_cost_node(costs):
-    #在未处理的node之中寻找到权重最低者直至返回None
+    # 在未处理的node之中寻找到权重最低者直至返回None
     lowest_cost = float("inf")
     lowest_cost_node = None
     for node in costs:
@@ -44,7 +44,7 @@ def find_lowest_cost_node(costs):
 node = find_lowest_cost_node(costs)
 
 while node is not None:
-    #不断更新parents和costs表，使其出发点到当前节点的每个子节点的代价最低
+    # 不断更新parents和costs表，使其出发点到当前节点的每个子节点的代价最低
     cost = costs[node]
     neighbors = graph[node]
     for n in neighbors.keys():
