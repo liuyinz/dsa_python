@@ -1,4 +1,3 @@
-import random
 from LNode import LNode
 
 
@@ -148,26 +147,3 @@ if __name__ == '__main__':
 ##    print(list1, '\n')
 # listSort(list1)
 # print(list1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

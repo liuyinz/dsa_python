@@ -1,5 +1,5 @@
-from SStack import *
 from SQueue import *
+from SStack import *
 
 maze1 = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -192,5 +192,3 @@ if __name__ == "__main__":
 
 #    maze_solver_queue(maze1, (1,1), (18,18))
 #    print(maze_solver_queue1(maze1, (1,1), (18,18)))
-
-
