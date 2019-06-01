@@ -1,8 +1,7 @@
-class LNode:
+class LNode :
     def __init__(self, elm, nxt):
         self.elem = elm
         self.next = nxt
-
 
 if __name__ == '__main__':
     llist1 = LNode(1, None)

@@ -1,23 +1,22 @@
 from LNode import LNode
 
-
 class LList:
     def __init__(self):
         self.head = None
-
+        
     def isEmpty(self):
         return self.head is None
-
+    
     def prepend(self, elem):
         self.head = LNode(elem, self.head)
-
+        
     def pop(self):
         if self.head is None:
             raise ValueError
         e = self.head.elem
         self.head = self.head.next
         return e
-
+    
     def append(self, elem):
         if self.head is None:
             self.head = LNode(elem, None)
@@ -28,19 +27,17 @@ class LList:
         p.next = LNode(elem, None)
 
     def poplast(self):
-        if self.head is None:  # empty list
+        if self.head is None: # empty list
             raise ValueError
         p = self.head
-        if p.next is None:  # list with only one element
-            e = p.elem
-            self.head = None
+        if p.next is None: # list with only one element
+            e = p.elem; self.head = None
             return e
-        while p.next.next is not None:  # till p.next be last node
+        while p.next.next is not None: # till p.next be last node
             p = p.next
-        e = p.next.elem
-        p.next = None
+        e = p.next.elem; p.next = None
         return e
-
+    
     def find(self, pred):
         p = self.head
         while p is not None:
@@ -48,13 +45,12 @@ class LList:
                 return p.elem
             p = p.next
         return None
-
+    
     def printall(self):
         p = self.head
         while p is not None:
             print(p.elem)
             p = p.next
-
 
 if __name__ == '__main__':
     mlist1 = LList()
@@ -66,3 +62,4 @@ if __name__ == '__main__':
         mlist1.append(i)
 
     mlist1.printall()
+

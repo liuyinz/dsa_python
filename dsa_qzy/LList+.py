@@ -1,23 +1,22 @@
 from LNode import LNode
 
-
 class LList:
     def __init__(self):
         self.head = None
-
+        
     def isEmpty(self):
         return self.head is None
-
+    
     def prepend(self, elem):
         self.head = LNode(elem, self.head)
-
+        
     def pop(self):
         if self.head is None:
             raise ValueError
         e = self.head.elem
         self.head = self.head.next
         return e
-
+    
     def append(self, elem):
         if self.head is None:
             self.head = LNode(elem, None)
@@ -28,17 +27,15 @@ class LList:
         p.next = LNode(elem, None)
 
     def poplast(self):
-        if self.head is None:  # empty list
+        if self.head is None: # empty list
             raise ValueError
         p = self.head
-        if p.next is None:  # list with only one element
-            e = p.elem
-            self.head = None
+        if p.next is None: # list with only one element
+            e = p.elem; self.head = None
             return e
-        while p.next.next is not None:  # till p.next be last node
+        while p.next.next is not None: # till p.next be last node
             p = p.next
-        e = p.next.elem
-        p.next = None
+        e = p.next.elem; p.next = None
         return e
 
     def find(self, pred):
@@ -48,7 +45,7 @@ class LList:
                 return p.elem
             p = p.next
         return None
-
+    
     def printall(self):
         p = self.head
         while p is not None:
@@ -86,14 +83,11 @@ class LList:
     def sort(self):
         if self.head is None:
             return
-        last = self.head
-        crt = last.next
+        last = self.head; crt = last.next
         while crt is not None:
-            p = self.head
-            q = None
+            p = self.head; q = None
             while p is not crt and p.elem <= crt.elem:
-                q = p
-                p = p.next
+                q = p; p = p.next
             if p is crt:
                 last = crt
             else:
@@ -103,21 +97,19 @@ class LList:
                     self.head = crt
                 else:
                     q.next = crt
-            crt = last.next
+            crt = last.next        
+#end of class LList
 
-
-# end of class LList
-
-
-def listSort(lst):
-    for i in range(1, len(lst)):  # seg [0:0] is sorted
+def listSort(lst) :
+    for i in range(1, len(lst)): # seg [0:0] is sorted
         x = lst[i]
         j = i
-        while j > 0 and lst[j - 1] > x:  # moving one by one
-            lst[j] = lst[j - 1]  # in reversed-order
+        while j > 0 and lst[j-1] > x: # moving one by one
+            lst[j] = lst[j-1]         # in reversed-order
             j -= 1
         lst[j] = x
 
+import random
 
 if __name__ == '__main__':
     mlist1 = LList()
@@ -142,8 +134,10 @@ if __name__ == '__main__':
     mlist1.sort()
     print('\nsorted:')
     mlist1.printall()
+    
 
 ##    list1 = [random.randint(1, 50) for i in range(20)]
 ##    print(list1, '\n')
-# listSort(list1)
-# print(list1)
+##    listSort(list1)
+##    print(list1)
+

@@ -1,4 +1,4 @@
-""" topological sort of direct graph
+""" topological sort of direct graph 
 """
 
 from Graph import *
@@ -24,9 +24,8 @@ def toposort(graph):
             if indegree[v] == 0:
                 indegree[v] = zerov; zerov = v
     return toposeq
-rmal mode use leader(,)+p autopep8 format code
 
-""" generate critical path of AOE
+""" generate critical path of AOE 
 """
 
 # graph 里无边用 infinity 表示
@@ -55,7 +54,7 @@ def setEventE(vnum, graph, toposeq, ee):
 def setEventL(vnum, graph, toposeq, eelast, le):
     for i in range(vnum): le[i] = eelast
     for k in range(vnum-2, -1, -1):# 逆拓扑顺序, 两端顶点都不必做
-        i = toposeq[k]
+        i = toposeq[k] 
         for j, w in graph.out_edges(i):
             if le[j] - w < le[i]:  # 事件 i 应更早开始?
                 le[i] = le[j] - w
@@ -93,3 +92,4 @@ if __name__ == '__main__':
     cp = criticalPath(g7)
     print(cp)
     pass
+
