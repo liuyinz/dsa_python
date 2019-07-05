@@ -1,10 +1,9 @@
-""" Dictionary and searching
+""" Dictionary and searching 
 """
 
 from BiTree1 import BiTNode, print_BiTNodes
 from SStack import *
 from Assoc import Assoc
-
 
 def bt_search(btree, key):
     bt = btree
@@ -14,10 +13,8 @@ def bt_search(btree, key):
             bt = bt.left
         elif key > entry.key:
             bt = bt.right
-        else:
-            return entry.value
+        else: return entry.value
     return None
-
 
 class DictBTree:
     def __init__(self):
@@ -29,7 +26,7 @@ class DictBTree:
     def preorder(self):
         t, s = self._root, SStack()
         while t is not None or not s.is_empty():
-            while t is not None:
+            while t is not None: 
                 s.push(t.right)
                 yield t.data
                 t = t.left
@@ -53,73 +50,61 @@ class DictBTree:
                 bt = bt.left
             elif key > entry.key:
                 bt = bt.right
-            else:
-                return entry.value
+            else: return entry.value
         return None
 
     def insert(self, key, value):
         bt = self._root
         if bt == None:
-            self._root = BiTNode(Assoc(key, value))
+            self._root = BiTNode(Assoc(key,value))
             return
         while True:
             entry = bt.data
             if key < entry.key:
                 if bt.left == None:
-                    bt.left = BiTNode(Assoc(key, value))
+                    bt.left = BiTNode(Assoc(key,value))
                     return
                 bt = bt.left
             elif key > entry.key:
                 if bt.right == None:
-                    bt.right = BiTNode(Assoc(key, value))
+                    bt.right = BiTNode(Assoc(key,value))
                     return
                 bt = bt.right
             else:
                 bt.data.value = value
                 return
-
+    
     def delete(self, key):
-        p, q = None, self._root  # keep p the parent of q
+        p, q = None, self._root # keep p the parent of q
         while q is not None and q.data.key != key:
             p = q
-            if key < q.data.key:
-                q = q.left
-            else:
-                q = q.right
-        if q == None:
-            return  # key is not in the tree
+            if key < q.data.key: q = q.left
+            else: q = q.right
+        if q == None: return # key is not in the tree
         # Now q refers to key node, p is its parent or _root
-        if q.left == None:  # q has no left child
-            if p == None:
-                self._root = q.right  # q == self._root
-            elif q == p.left:
-                p.left = q.right
-            else:
-                p.right = q.right  # here q == p.right
+        if q.left == None: # q has no left child
+            if p == None: self._root = q.right # q == self._root
+            elif q == p.left: p.left = q.right 
+            else: p.right = q.right # here q == p.right
             return
         r = q.left
         while r.right is not None:
             r = r.right
         r.right = q.right
-        if p == None:
-            self._root = q.left  # q == self._root
-        elif p.left == q:
-            p.left = q.left
-        else:
-            p.right = q.left
+        if p == None: self._root = q.left # q == self._root
+        elif p.left == q: p.left = q.left
+        else: p.right = q.left
 
     def print(self):
         for entry in self.inorder():
             print(entry.key, entry.value)
 # END class
 
-
 def build_dictBT(entries):
     dic = DictBTree()
     for k, v in entries:
         dic.insert(k, v)
     return dic
-
 
 if __name__ == '__main__':
     from random import randint
@@ -132,3 +117,6 @@ if __name__ == '__main__':
         print(entry.key, entry.value)
 
     pass
+        
+    
+

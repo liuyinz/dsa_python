@@ -1,4 +1,4 @@
-""" classes and functions for binary trees
+""" classes and functions for binary trees 
 """
 
 class BiTNodeError(ValueError):
@@ -67,7 +67,7 @@ def preorder_nonrec(t, proc):
 def preorder_iter(t):
     s = SStack()
     while t is not None or not s.is_empty():
-        while t is not None:
+        while t is not None: 
             s.push(t.right)
             yield t.data
             t = t.left
@@ -129,11 +129,12 @@ class BiTree:
     def preorder_iter(self):
         t, s = self._root, SStack()
         while t is not None or not s.is_empty():
-            while t is not None:
+            while t is not None: 
                 s.push(t.right)
                 yield t.data
                 t = t.left
             t = s.pop()
-
+    
 if __name__ == '__main__':
     pass
+
